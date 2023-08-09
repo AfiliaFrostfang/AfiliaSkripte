@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Notes Menü
 // @namespace    Discord @afiliaassela
-// @version      1.3.0
+// @version      1.3.1
 // @description  Resizeable Notizen für LSS
 // @author       Afilia
 // @match        https://www.leitstellenspiel.de/
@@ -181,6 +181,20 @@
     document.addEventListener('mouseup', () => {
         isResizing = false;
     });
+
+        // Calculate the position based on existing notes
+        const noteElements = document.querySelectorAll('.sticky-note');
+        const numRows = Math.floor(window.innerWidth / 250); // Adjust the width as needed
+        const row = Math.floor(noteElements.length / numRows);
+        const col = noteElements.length % numRows;
+    
+        // Calculate the note position
+        const leftPosition = col * 250 + 10; // Adjust the spacing as needed
+        const topPosition = row * 170 + 10; // Adjust the spacing as needed
+    
+        // Set the note position
+        note.style.left = leftPosition + 'px';
+        note.style.top = topPosition + 'px';
 
         const noteContent = document.createElement('div');
         noteContent.classList.add('sticky-note-content');
