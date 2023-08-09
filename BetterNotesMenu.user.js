@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Notes Menü
 // @namespace    Discord @afiliaassela
-// @version      1.3.2
+// @version      1.3.1
 // @description  Resizeable Notizen für LSS
 // @author       Afilia
 // @match        https://www.leitstellenspiel.de/
@@ -57,19 +57,24 @@
             z-index: 10000;
             min-width: 200px;
             min-height: 150px;
-            max-width: calc(100% - 20px);
-            max-height: calc(80% - 60px);
+            max-width: 600px;
+            max-height: 300px;
             display: inline-grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            grid-gap: 10px; 
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 10px;
         }
 
         .sticky-note-content {
             padding: 5px;
-            height: 80%;
+            height: calc(100% - 52px);
+            width: calc(100% - 52px);
             color: white;
             font-family: Arial, sans-serif;
+            max-height: calc(100% - 52px);
+            max-width: calc(100% - 52px);
             overflow: auto;
+            word-wrap: break-word;
+            box-sizing: border-box;
         }
 
         .sticky-note-button {
@@ -172,10 +177,10 @@
             const newHeight = startHeight + (e.clientY - startY);
 
             // Set minimum and maximum dimensions
-            const minWidth = 200; // Set your desired minimum width here
-            const maxWidth = Math.min(window.innerWidth - 20, 200); // Limit to 1276px width
-            const minHeight = 150; // Set your desired minimum height here
-            const maxHeight = Math.min(window.innerHeight * 0.8 - 60, 200); // Limit to 1124px height
+            const minWidth = 200;
+            const maxWidth = Math.min(window.innerWidth - 20, 600);
+            const minHeight = 150;
+            const maxHeight = Math.min(window.innerHeight * 0.8 - 60, 450);
 
             // Apply limitations
             note.style.width = Math.min(maxWidth, Math.max(newWidth, minWidth)) + 'px';
