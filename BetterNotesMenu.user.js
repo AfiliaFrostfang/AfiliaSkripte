@@ -69,6 +69,7 @@
             height: 80%;
             color: white;
             font-family: Arial, sans-serif;
+            overflow: auto;
         }
 
         .sticky-note-button {
