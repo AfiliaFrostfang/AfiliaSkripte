@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Notes Menü
 // @namespace    Discord @afiliaassela
-// @version      1.3.1
+// @version      1.3.2
 // @description  Resizeable Notizen für LSS
 // @author       Afilia
 // @match        https://www.leitstellenspiel.de/
@@ -66,15 +66,15 @@
 
         .sticky-note-content {
             padding: 5px;
-            height: calc(100% - 52px);
-            width: calc(100% - 52px);
+            min-height: 100px;
+            min-width: 100px;
+            max-height: 500px;
+            max-width: 500px;
             color: white;
             font-family: Arial, sans-serif;
-            max-height: calc(100% - 52px);
-            max-width: calc(100% - 52px);
             overflow: auto;
             word-wrap: break-word;
-            box-sizing: border-box;
+            box-sizing: margin;
         }
 
         .sticky-note-button {
