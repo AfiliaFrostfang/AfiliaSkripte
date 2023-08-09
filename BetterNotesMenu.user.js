@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Notes Menü
 // @namespace    Discord @afiliaassela
-// @version      1.3.1
+// @version      1.3.2
 // @description  Resizeable Notizen für LSS
 // @author       Afilia
 // @match        https://www.leitstellenspiel.de/
