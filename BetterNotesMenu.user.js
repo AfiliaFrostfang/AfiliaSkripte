@@ -59,6 +59,9 @@
             min-height: 150px;
             max-width: calc(100% - 20px);
             max-height: calc(80% - 60px);
+            display: inline-grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 10px; 
         }
 
         .sticky-note-content {
@@ -181,20 +184,6 @@
     document.addEventListener('mouseup', () => {
         isResizing = false;
     });
-
-        // Calculate the position based on existing notes
-        const noteElements = document.querySelectorAll('.sticky-note');
-        const numRows = Math.floor(window.innerWidth / 250); // Adjust the width as needed
-        const row = Math.floor(noteElements.length / numRows);
-        const col = noteElements.length % numRows;
-    
-        // Calculate the note position
-        const leftPosition = col * 250 + 10; // Adjust the spacing as needed
-        const topPosition = row * 170 + 10; // Adjust the spacing as needed
-    
-        // Set the note position
-        note.style.left = leftPosition + 'px';
-        note.style.top = topPosition + 'px';
 
         const noteContent = document.createElement('div');
         noteContent.classList.add('sticky-note-content');
